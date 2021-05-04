@@ -273,7 +273,7 @@ Resources:
             EOT
 
             # Install Telegraf
-            yum install telegraf -y
+            yum --nogpgcheck install telegraf -y
 
             # Backup current configs
             mv /etc/telegraf/telegraf.conf /etc/telegraf/telegraf.bckp
@@ -587,12 +587,12 @@ Resources:
               - name: Amazon Timestream
                 type: grafana-timestream-datasource
                 jsonData:
-                  defaultRegion: us-west-2
+                  defaultRegion: ${Region}
             EOT
 
             # Configure a Sample Dashboard
             mkdir /etc/grafana/dashboards
-            wget -q -O /etc/grafana/dashboards/timestream.json https://raw.githubusercontent.com/aws-samples/amazon-timestream-telegraf-and-grafana-demo/main/timestream.json
+            wget -q -O /etc/grafana/dashboards/timestream.json https://raw.githubusercontent.com/bitbauer/timestream/main/timestream.json
 
             cat <<'EOT' >> /etc/grafana/provisioning/dashboards/timestream.yaml
             apiVersion: 1
