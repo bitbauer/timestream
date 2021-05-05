@@ -5,15 +5,16 @@ AWS CloudFormation template (main.yaml) will also deploy an Amazon EC2 instance 
 
 ###  Launch the AWS CloudFormation Stack
 
-Click on the **Launch Stack** button below to launch the CloudFormation Stack to set up the Amazon Timestream with Telegraf Sample in the region of your preference, by default this demo will be deployed in us-west-2 (Oregon) region.
+Click on the **Launch Stack** button below to launch the CloudFormation Stack to set up the Amazon Timestream with Telegraf Sample in the region of your preference, by default this demo will be deployed in eu-west-1 (Ireland) region.
 
-[![Launch CFN stack](https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png)](https://eu-west-1.console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/create/template)
-AllowedIP=0.0.0.0/0
-LatestAmiId=/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2
-PublicSubnet1CIDR=10.10.10.0/24
-PublicSubnet2CIDR=10.10.11.0/24
-ResourceName=telegraf-to-timestream
-VpcCIDR=10.10.0.0/16
+[![Launch CFN stack](https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png)](https://eu-west-1.console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/create/template)  
+
+AllowedIP=0.0.0.0/0  
+LatestAmiId=/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2  
+PublicSubnet1CIDR=10.10.10.0/24  
+PublicSubnet2CIDR=10.10.11.0/24  
+ResourceName=telegraf-to-timestream  
+VpcCIDR=10.10.0.0/16  
 
 Provide a stack name eg **timestream-telegraf**.
 
@@ -33,7 +34,7 @@ Once stack creation is completed, it will output the Application Load Balancer D
 ```
 aws cloudformation describe-stacks --stack-name timestream-telegraf \
    --query "Stacks[0].Outputs[0].OutputValue" \
-   --region us-west-2
+   --region eu-west-1
 ```
 
 **Username:** ```admin```
@@ -44,7 +45,7 @@ After logged in, under Dashboards, you will find a sample dashboard called "Amaz
 ###  Clean up
 After completing your demo, delete AWS CloudFormation Stack using AWS Console or AWS CLI:
 ```
-aws cloudformation delete-stack --stack-name timestream-telegraf  --region us-west-2
+aws cloudformation delete-stack --stack-name timestream-telegraf  --region eu-west-1
 ```
 
 ## Security
