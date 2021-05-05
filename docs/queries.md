@@ -1,4 +1,4 @@
--- Find the average, p90, p95, and p99 CPU utilization for a specific EC2 host over the past 2 hours.
+-- Find the average, p90, p95, and p99 CPU utilization for a specific EC2 host over the past 2 hours.  
 SELECT region, host, BIN(time, 15s) AS binned_timestamp,
     ROUND(AVG(measure_value::double), 2) AS avg_cpu_utilization,
     ROUND(APPROX_PERCENTILE(measure_value::double, 0.9), 2) AS p90_cpu_utilization,
@@ -10,7 +10,7 @@ WHERE measure_name = 'usage_user'
 GROUP BY region, host, BIN(time, 15s)
 ORDER BY binned_timestamp ASC
 
--- Find the average CPU utilization binned at 30 second intervals for a specific EC2 host over the past 2 hours, filling in the missing values using interpolation based on the last observation carried forward.
+-- Find the average CPU utilization binned at 30 second intervals for a specific EC2 host over the past 2 hours, filling in the missing values using interpolation based on the last observation carried forward.  
 WITH binned_timeseries AS (
     SELECT host, BIN(time, 30s) AS binned_timestamp, ROUND(AVG(measure_value::double), 2) AS avg_cpu_utilization
     FROM "ec2Metrics".cpu
