@@ -41,9 +41,11 @@ The data is then written to Timestream and stored durably. In our experience, a 
 
 * Table per measure vs multiple measure in one table
 * Differences in query language to standard SQL
+<<<<<<< HEAD
 * Differences RDS vs ElasticSearch vs TimeScale vs TimeStream
 * Pricing structure
 * AWS Grafana + Timestream = Better together ? 
+* Pricing structure (https://blog.timescale.com/blog/timescaledb-vs-amazon-timestream-6000x-higher-inserts-175x-faster-queries-220x-cheaper/)
 
 #### Saved und Recent Queries sind nur für den eigenen Benutzer sichtbar
 * Lustigerweise bleiben die Benutzerqueries bei Logout/Login erhalten. Wie werden sie in AWS gespeichert?
